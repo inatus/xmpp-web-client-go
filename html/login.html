@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>XMPP Chat Client</title>
+	<link href="style.css" rel="stylesheet" type="text/css"></link>
+	<script type="text/javascript"
+		src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+	<script type="text/javascript" src="chat.js"></script>
+</head>
+
+<body>
+	<form id="login" name="login" method="post" action="">
+		<p>
+			<label for="username">User Name</label> <input name="username"
+				type="text" id="username" value="" />
+		</p>
+		<p>
+			<label for="password">Password</label> <input name="password"
+				type="password" id="password" value="" />
+		</p>
+		<p>
+			<label for="server">Server</label> <input name="server" type="text"
+				id="server" value="talk.google.com:5222" />
+		</p>
+		<p>
+			<input type="submit" name="submit" id="submit" value="Login" />
+		</p>
+	</form>
+</body>
+</html>

@@ -1,0 +1,132 @@
+@charset "UTF-8";
+body {
+	font: 80%/1.4 "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
+	background: #FFF;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+/* ~~ エレメント / タグセレクター ~~ */
+ul, ol, dl { /* ブラウザー間の相違により、リストの余白とマージンをゼロにすることをお勧めします。一貫性を保つために、量をここで指定するか、リストに含まれるリスト項目 (LI、DT、DD) で指定できます。より詳細なセレクターを記述しない限り、ここで指定する内容が .nav リストにも適用されることに注意してください。 */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 0;	 /* 上マージンを削除すると、マージンを含む block からマージンがはみ出す場合があるという問題を回避できます。残った下マージンにより、後続のエレメントからは離されます。 */
+	padding-right: 15px;
+	padding-left: 15px; /* block 自体ではなく block 内でエレメントの両側に余白を追加すると、ボックスモデル計算が不要になります。代わりに、両側に余白を指定した block をネストして使用することもできます。 */
+}
+a img { /* このセレクターは、一部のブラウザーでイメージをリンクで囲んだ場合にイメージの周囲に表示される初期設定の青いボーダーを削除します。 */
+	border: none;
+}
+/* ~~ サイトのリンクのスタイル付けは、ホバー効果を作成するセレクターグループも含め、この順序にする必要があります。~~ */
+a:link {
+	color: #42413C;
+	text-decoration: underline; /* 非常に特殊な表示方法でリンクをスタイル付けする場合を除き、一目で見分けられるように下線を指定することをお勧めします。 */
+}
+a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* このセレクターグループは、キーボードを使用するユーザーに対し、マウスを使用するユーザーと同じホバー効果を提供します。 */
+	text-decoration: none;
+}
+/* ~~ この固定幅コンテナが他のすべての block を囲みます。~~ */
+.container {
+	width: 450px;
+	height: 200px;
+	background: #FFF;
+	margin: 0; 
+	padding: 0; 
+}
+/* ~~ ヘッダーには幅は指定されません。ヘッダーはレイアウトの幅全体まで広がります。~~ */
+header {
+	background-color: #CCC;
+}
+/* ~~ レイアウトに使用するカラムです。~~ 
+
+1) 余白は、block エレメントの上部または下部にのみ配置されます。これらの block 内のエレメントには、それ自体に余白があるので、ボックスモデル計算を行う必要がありません。ただし、block 自体に両側の余白やボーダーを指定した場合、その値が加算されたものが合計幅になることに注意してください。block エレメント内のエレメントの余白を削除し、さらにその block エレメント内に、全体のデザインに必要な幅や余白を指定していない 2 つ目の block エレメントを追加することもできます。
+
+2) カラムはすべてフロートしているため、マージンは指定されていません。マージンを追加する必要がある場合は、フロート方向には指定しないでください (例えば、右フロートに設定した block の右マージン)。多くの場合、代わりに余白を使用できます。このルールに従わない場合は、block エレメントのルールに「display:inline」宣言を追加し、一部のバージョンの Internet Explorer でマージンが 2 倍になるバグを回避する必要があります。
+
+3) クラスはドキュメント内で複数回使用できるので (またエレメントには複数のクラスを適用できます)、カラムには ID ではなくクラス名が割り当てられます。例えば、必要に応じて 2 つのサイドバー block をスタックできます。クラスを各ドキュメントで一度しか使用しないのであれば、ユーザーの好みに応じて、クラス名を ID に変更することができます。
+
+4) ナビゲーションを右ではなく左に配置したい場合、これらのカラムを反対方向にフロートさせると (すべて右方向にする代わりに、すべて左方向に設定)、反転してレンダリングされます。HTML ソース内で block を移動する必要はありません。
+
+*/
+nav {
+	float: left;
+	width: 150px;
+	height: 200px;
+	background-color: #FFF;
+}
+
+section {
+	float: left;
+	top: 0px;
+	clip: rect(0px,auto,auto,auto);
+	margin: 0px;
+	padding: 0px;
+	height: 200px;
+	width: 300px;
+}
+
+p {
+	padding: 0;
+	margin: 0;
+	left: 0px;
+}
+
+#userlist {
+	width: 100%;
+	height: 100%;
+}
+
+/* ~~ このセレクターグループは、.content 内のリストに領域間隔を指定します。~~ */
+.content ul, .content ol {
+	padding: 0 15px 15px 40px; /* この余白は、上述の見出しと段落ルールの右の余白を表します。下の余白はリスト内の他のエレメントとの間隔用に配置され、左の余白はインデント作成用に配置されています。これは必要に応じて調整できます。 */
+}
+
+/* ~~ ナビゲーションリストのスタイル付け (Spry などの事前作成済みのフライアウトメニューを使用する場合は削除できます) ~~ */
+nav ul {
+	list-style: none; /* リストのマーカーを削除します。 */
+	border-top: 1px solid #666; /* リンク用の上部のボーダーを作成します。他のすべてのものは LI 上で下部のボーダーを使用して配置されます。 */
+	margin-bottom: 15px; /* 下のコンテンツのナビゲーション間の間隔を作成します。 */
+}
+nav ul li {
+	border-bottom: 1px solid #666; /* ボタンの区切り線を作成します。 */
+}
+nav ul a, nav ul a:visited { /* これらのセレクターをグループ化することで、リンクのボタン表示が訪問後も確実に保持されます。 */
+	padding: 5px 5px 5px 15px;
+	display: block; /* リンクにブロックプロパティを指定し、リンクが含まれる LI 全体がリンクになるようにします。これにより、領域全体がマウスのクリックに反応するようになります。 */
+	width: 160px;  /*この幅により、IE6 でボタン全体をクリックできるようになります。IE6 をサポートする必要がない場合は削除できます。適切な幅を計算するには、サイドバーコンテナの幅からそのリンクの余白を減算します。 */
+	text-decoration: none;
+	background: #C6D580;
+}
+nav ul a:hover, nav ul a:active, nav ul a:focus { /* マウスを使用する場合もキーボードを使用する場合も、背景色とテキストカラーを変更します。 */
+	background: #ADB96E;
+	color: #FFF;
+}
+
+/* ~~ フッター ~~ */
+footer {
+	padding: 10px 0;
+	background: #CCC49F;
+	position: relative;/* IE6 に、適切にクリアするための hasLayout を指定します。 */
+	clear: both; /* この clear プロパティにより .container は、カラムの範囲がどこまでかを認識してその範囲を含めるようになります。 */
+}
+
+.log {
+	overflow:auto;
+	width:300px;
+	height:150px;
+	border:1px black solid;
+	background-color: #FFF;
+	position: relative;
+	clip: rect(auto,auto,auto,auto);
+}
+
+/*HTML 5 サポート - 新しい HTML 5 タグを display:block に設定します。これにより、ブラウザーでタグが適切にレンダリングされます。 */
+header, section, footer, aside, nav, article, figure {
+	display: block;
+}
