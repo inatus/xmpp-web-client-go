@@ -3,7 +3,7 @@ xmpp-web-client
 
 Sample xmpp web client implemented with Golang.
 
-![Sample screen shot](https://raw.github.com/inatus/xmpp-web-client/master/screen_shot.png)
+![Sample screen shot](https://raw.github.com/inatus/xmpp-web-client-go/master/screen_shot.png)
 #Usage#
 
 1. Execute "go get https://github.com/inatus/xmpp-web-client.git"
